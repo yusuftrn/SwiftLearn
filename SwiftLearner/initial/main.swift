@@ -11,8 +11,3 @@ let number = Int.random(in: 1...500)
 for i in 1...number{
 	print("Hello \(i)")
 }
-
-for i in 1...number{
-	print (i)
-}
-

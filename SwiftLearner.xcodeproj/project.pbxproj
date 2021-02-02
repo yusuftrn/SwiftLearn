@@ -57,9 +57,17 @@
 		882D065C25CA152400441F34 /* SwiftLearner */ = {
 			isa = PBXGroup;
 			children = (
-				882D065D25CA152400441F34 /* main.swift */,
+				88B2A54525CA1CDB00BAE5CF /* initial */,
 			);
 			path = SwiftLearner;
+			sourceTree = "<group>";
+		};
+		88B2A54525CA1CDB00BAE5CF /* initial */ = {
+			isa = PBXGroup;
+			children = (
+				882D065D25CA152400441F34 /* main.swift */,
+			);
+			path = initial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
