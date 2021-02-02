@@ -12,4 +12,7 @@ for i in 1...number{
 	print("Hello \(i)")
 }
 
+for i in 1...number{
+	print (i)
+}
 
