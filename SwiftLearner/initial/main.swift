@@ -619,3 +619,380 @@ print(mustHaveResult2)
 /* ////////// DAY 2 - Collection Types //////////
 
 */
+
+//Collection Types: Arrays
+
+let evenNumbers = [2, 4, 6, 8]
+// or you can use: let evenNumbers: [Int] = [2, 4, 6, 8]
+print(evenNumbers[0])
+print(evenNumbers)
+
+//creating an empty array
+var subscribers: [String] = []
+subscribers.append("Yusuf Turan")
+subscribers.append("Foo Boo")
+print(subscribers[0])
+
+//Its also possible to create an array with values to a default value:
+let allZeros: [Int] = Array(repeating: 0, count: 5)
+print(allZeros) //[0, 0, 0, 0, 0]
+
+var players: [String] = ["Alice", "Bob", "Cindy", "Dan"]
+if(players.isEmpty){
+	print("There is no players")
+}
+else{
+	//get the last element
+	print(players[players.count - 1])
+}
+
+//Arrays provide the first property to fetch the first object of an array:
+var currentPlayer = players.first
+//we have to use as Any. Because array can be nil. So we have to think Optionals.
+print(currentPlayer as Any) //Optional("Alice")
+
+//also we can use array.min() and array.max() methods for the find easy min,max.
+print([2, 3, 1, 5].min() as Any) //Optional(1)
+
+//unwrap optional:
+if let currentPlayer = currentPlayer {
+	print("\(currentPlayer) will start") //Output:	Alice will start
+}
+
+//using countable ranges to make an ArraySlice
+//The constant upcomingPlayersSlice is actually an ArraySlice of the original array. so arraySlice[1] = array[1]
+let upcomingPlayersSlice = players[1...2]
+print("\(upcomingPlayersSlice[1]) and \(upcomingPlayersSlice[2])")
+
+//It is also easy to make a brand-new, zero-indexed Array from an ArraySlice like so:
+let upcomingPlayersArray = Array(players[1...2])
+print(upcomingPlayersArray[0], upcomingPlayersArray[1]) // > "Bob Cindy"
+
+//checking for an element
+func isEliminated(player: String) -> Bool {
+	!player.contains(player)
+}
+print(isEliminated(player: "Bob"))		// false
+
+//append element
+players.append("Ela")
+print(players)
+players += ["Gina"]
+print(players)
+
+//insert element
+players.insert("Frank", at: 5)
+print(players)
+
+//removing elements
+var removedPlayer = players.removeLast()
+print(removedPlayer)
+print(players)
+
+//removing specific player access with indis
+removedPlayer = players.remove(at: 2)
+print(removedPlayer)
+print(players)
+
+let findIndex = players.firstIndex(of: "Dan")
+print(findIndex as Any) //It's optional because it can be nil. Output: //Optional(2)
+
+//Uptading elements
+players[4]  = "Franklin" // Frank -> Franklin
+print(players)
+
+//update multiple in a line
+players[0...1] = ["Donna", "Craig", "Brian", "Anna"] //its updates players[0] and players[1] then add last 2 element to player[2] and player[3]
+print(players) //Output: ["Donna", "Craig", "Brian", "Anna", "Dan", "Ela", "Franklin"]
+
+
+//moving elements
+let playerAnna = players.remove(at: 3)
+players.insert(playerAnna, at: 0)
+print(players)
+
+//or use swapAt(_:_:):
+players.swapAt(1, 3) //Swaps player[1] and player[3]
+print(players)
+
+//and sort array sort():
+players.sort()
+print(players)
+
+//iterate through array
+for player in players {
+	print(player)
+}
+
+//iterate through enumerated
+for (index, player) in players.enumerated() {
+	print("\(index + 1). \(player)")
+}
+
+let scores = [2, 2, 8, 6, 1, 2, 1]
+
+func sumOfElements(in array: [Int]) -> Int {
+	var sum = 0;
+	for number in array{
+		sum += number
+	}
+	return sum
+}
+print(sumOfElements(in: scores))
+
+
+//Collection Types: Dictionaries
+
+// A dictionary is an unordered collection of pairs, where each pair comprises a key and a value.
+// Keys are unique same key can't appear twice
+
+var namesAndScores: [String : Int] = ["Anna": 2, "Brian": 2, "Craig": 8, "Donna": 6]
+print(namesAndScores)
+
+//empty dict
+var pairs: [String : Int] = [:]
+pairs.reserveCapacity(20)
+//Using reserveCapacity(_:) is an easy way to improve performance when you have an idea of how much data the dictionary needs to store.
+print(pairs)
+
+//another way to create empty dict
+var emptyDict: [String : Int] = Dictionary<String,Int>()
+print(emptyDict)
+
+//restore the values:
+namesAndScores = ["Anna": 2, "Brian": 2, "Craig": 8, "Donna": 6]
+//subcripting
+print(namesAndScores["Anna"]!) //2
+print(namesAndScores["Greg"] as Any) //nil
+
+//Adding pairs
+var bobData = [
+	"name" : "Bob",
+	"profession": "Card Player",
+	"country": "USA"
+]
+bobData.updateValue("CA", forKey: "state")
+bobData["city"] = "San Francisco"
+print(bobData)
+
+//Updating values
+bobData.updateValue("Bobby", forKey: "name")
+bobData["profession"] = "Mailman"
+print(bobData) // Bob -> Bobby
+
+//Removing pairs
+bobData.removeValue(forKey: "state")
+bobData["city"] = nil //Assigning nil as a key’s associated value removes the pair from the dictionary.
+print(bobData)
+
+//Iterating throught dicts
+for (player, score) in namesAndScores {
+	print("\(player) - \(score)")
+}
+for (key, data) in bobData {
+	print("\(key) : \(data)")
+}
+//It’s also possible to iterate over just the keys:
+for player in namesAndScores.keys {
+	print("\(player), ", terminator: "") //terminator for -> no new line: OUTPUT: Donna, Brian, Anna, Craig,
+}
+print("")// print one final newline
+
+//Collection Types: Sets
+//unordered, unique
+let SetOne: Set<Int> = [1]
+
+let someArray: [Int] = [1, 2, 3, 1]
+var explicitSet: Set<Int> = Set(someArray)
+print(explicitSet) //set cant contain duplicated value in array: Output: [1, 2, 3]
+
+//accessing elements: use contains(_:) to check for the existence of a specific element:
+print(explicitSet.contains(1)) //true
+print(explicitSet.contains(5)) //false
+
+//adding and removing elements: insert(_:) and remove(_:)
+explicitSet.insert(5)
+explicitSet.remove(1)
+print(explicitSet)
+
+
+//Closure basics
+//	closure can access, store and manipulate the value of any variable or constant from the
+// 	surrounding context.
+//Example:
+var multiplyClosure: (Int, Int) -> Int
+
+multiplyClosure = { (a: Int, b: Int) -> Int in
+	return a * b
+}
+let result = multiplyClosure(4, 2)
+print(result)
+
+//Next, you can use Swift’s type inference to shorten the syntax even more by
+// removing the type information:
+multiplyClosure = { (a, b) in a * b}
+print(multiplyClosure(5, 3))
+
+//And finally, you can even omit the parameter list if you want. Swift lets you refer to
+//each parameter by number, starting at zero,
+multiplyClosure = { $0 * $1 }
+print(multiplyClosure(4, 5))
+
+func operateOnNumbers(_ a: Int, _ b: Int, operation: (Int, Int) -> Int) -> Int {
+	let result = operation(a, b)
+	return result
+}
+let addClosure = { (a: Int, b: Int) in
+	a + b
+}
+let res2 = operateOnNumbers(4, 2, operation: addClosure)
+print(res2)
+
+//Closures with no return values
+let voidClosure: () -> Void = {
+	print("Swift has shitty syntax. Sorry, but Java is clean.")
+
+}
+voidClosure()
+
+//Capturing from the enclosing scope
+var counter = 0
+let incrementCounter = {
+	counter += 1
+}
+incrementCounter()
+incrementCounter()
+incrementCounter()
+print(counter) //3
+
+func countingClosure() -> () -> Int {
+	var counter = 0
+	let incrementCounter: () -> Int = {
+		counter += 1
+		return counter
+	}
+	return incrementCounter
+}
+let counter1 = countingClosure()
+let counter2 = countingClosure()
+var value1 = 0
+var value2 = 0
+value1 += counter1() // 1
+value2 += counter2() // 1
+value1 += counter1() // 1 + 2 = 3
+value1 += counter1() // 3 + 3 = 6
+value2 += counter2() // 1 + 2 = 3
+print(value1, value2)
+
+//Custom sorting with closures
+let names = ["ZZZZZZ", "BB", "A", "CCCC", "EEEEE"]
+print(names.sorted())
+//reverse sort
+let reverseSort = names.sorted { $0.count > $1.count }
+print(reverseSort)
+
+//Iterating over collections with closures:
+
+//Example: loops through each item in the collection printing the value and its square.
+let valuesForSquare = [1, 2, 3, 4, 5, 6]
+valuesForSquare.forEach {
+	print("\($0): \($0 * $0)")
+}
+
+//Example: filter out certain elements
+var prices = [1.5, 10, 4.99, 2.39, 8.20]
+let largePrices = prices.filter{ $0 > 5 }
+print(largePrices)
+
+//Example: imagine you discount all prices 90% of their original price
+let salesPrices = prices.map{ $0 * 0.9 }
+print(salesPrices)
+
+//Example: also map function can be used for type change (str -> int ..)
+let userInput = ["0", "11", "hah", "42"]
+let numberOfInput = userInput.map{ Int($0) }
+print(numberOfInput) //[Optional(0), Optional(11), nil, Optional(42)]
+
+//filter out invalid(missing) values, use: comtactMap
+let numberOfInput2 = userInput.compactMap{ Int($0) }
+print(numberOfInput2) //[0, 11, 42]
+
+//sum of:
+let number3 = [1, 3, 4, 5]
+let sumNumbers = number3.reduce(0) {$0 + $1}
+print(sumNumbers) //13
+
+let farmAnimals: [String : Int] = ["Horse": 5, "Dog": 10, "Sheep": 50, "Pig": 1]
+let allAnimals = farmAnimals.reduce(into: []) {
+	(result, this: (key: String, value: Int)) in
+	for _ in 0..<this.value {
+		result.append(this.key)
+	}
+}
+print(allAnimals)
+
+prices = [1.5, 10, 4.99, 2.39, 8.20]
+let removeFirst = prices.dropFirst()
+let removeFirstTwo = prices.dropFirst(2)
+let removeLast = prices.dropLast()
+let removeLastTwo = prices.dropLast(2)
+print(removeFirst)
+print(removeFirstTwo)
+print(removeLast)
+print(removeLastTwo)
+
+//You can select just the first or last elements of an array as shown below:
+let firstTwo = prices.prefix(2)
+let lastTwo = prices.suffix(2)
+print(firstTwo)
+print(lastTwo)
+
+prices.removeAll() { $0 > 2 } // prices is now [1.5]
+prices.removeAll() // prices is now an empty array
+print(prices)
+
+func isPrime(_ number: Int) -> Bool {
+	if(number == 1){
+		return false
+	}
+	if(number == 2 || number==3){
+		return true
+	}
+	for i in 2...Int(Double(number).squareRoot()) {
+		if (number % i == 0){
+			return false
+		}
+	}
+	return true
+}
+
+var primes: [Int] = []
+var i = 1
+while primes.count < 100 {
+	if isPrime(i) {
+		primes.append(i)
+	}
+	i += 1
+}
+primes.forEach{ print("\($0), ", terminator: "") }
+print("")
+
+//also we can use lazy collection. so we can manipulate big data it in some way:
+let primesLazy = (1...).lazy
+	.filter { isPrime($0) }
+	.prefix(100)
+primesLazy.forEach{ print("\($0), ", terminator: "") }
+print("")
+
+//Challenge 1: Repeating yourself
+func repeatTask(times: Int, task: () -> Void) {
+	var i=0
+	repeat{
+		printOut()
+		i += 1
+	}while(i<times)
+}
+func printOut() {
+	print("Swift Apprentice is a great book!")
+}
+repeatTask(times: 10, task: printOut)
