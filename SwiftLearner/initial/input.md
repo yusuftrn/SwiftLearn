@@ -7,7 +7,7 @@
 
 import Foundation
 
-/*
+
 //////// DAY1 /////////
 print("Expressions, Variables & Constants:")
 /*
@@ -303,7 +303,7 @@ switch coordinatesOfObject {
 }
 //////// */
 
-/*
+
 //////// DAY 2 ////////
 
 
@@ -615,10 +615,9 @@ if let unwrapped = optionalInt2 {
 }
 print(mustHaveResult2)
 
-*/
-/* ////////// DAY 2 - Collection Types //////////
 
-*/
+////////// DAY 2 - Collection Types //////////
+
 
 //Collection Types: Arrays
 
