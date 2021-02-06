@@ -305,7 +305,6 @@ switch coordinatesOfObject {
 
 /*
 //////// DAY 2 ////////
-*/
 
 
 //Functions
@@ -443,3 +442,180 @@ for index in stride(from: 10, to: 22, by: 4) {
 for index in stride(from: 10.0 , through: 9.0, by: -0.1){
 	print(index)
 }
+
+//Challenge2: Is it prime?
+func isNumberDivisible(_ number: Int, by divisor: Int) -> Bool {
+	return number % divisor == 0
+}
+func isPrime(_ number: Int) -> Bool {
+	if (number < 0) {
+		return false
+	}
+	if (number <= 3) {
+		return true
+	}
+	let root = Int(sqrt(Double(number)))
+	for i in 2...root{
+		if(isNumberDivisible(number, by: i)){
+			return false
+		}
+	}
+	return true
+}
+print(isPrime(6)) // false
+print(isPrime(13)) // true
+print(isPrime(8893)) // true
+
+//Challenge3: Recursive -fibonacci example:
+func fibonacci(_ number: Int) -> Int {
+	if(number <= 1){
+		return number
+	}
+	else{
+		return fibonacci(number - 1) + fibonacci(number - 2)
+	}
+}
+print(fibonacci(18)) // = 2584
+print(fibonacci(10)) // = 55
+
+/*
+Optionals are Swift’s solution to the problem of representing both a value and the
+absence of a value. An optional is allowed to hold either a value or nil.
+
+You declare a variable of an optional type by using the following syntax:
+var errorCode: Int?
+*/
+var myFavoriteSong: String?
+print(myFavoriteSong as Any) // nil
+
+var res: Int? = 30
+print(res as Any) // Outputs: Optional(30)
+
+/*
+ERROR:
+Value of optional type 'Int?' must be unwrapped to a value of type 'Int' :
+
+print(res + 1)
+
+It doesn’t work because you’re trying to add an integer to a box — not to the value
+inside the box, but to the box itself. That doesn’t make sense.
+*/
+//Solution: Force unwrapping:
+var authorName: String? = "Matty Galloway"
+var authorAge: Int? = 30
+var unwrappedAuthorName = authorName!
+var unwrappedAuthorAge = authorAge!
+print("The author is \(unwrappedAuthorName) and he is \(unwrappedAuthorAge) year old")
+
+/*
+The use of the word “force” and the exclamation mark ! probably conveys a sense of
+danger to you, and it should.
+*/
+
+//Don't unwrap the box when it contains no value.
+//When it needs, try like this:
+authorName = nil
+if authorName != nil {
+	print("Author is \(authorName!)")
+}
+else {
+	print("No author.")
+}
+
+
+authorName = "Yusuf Turan"
+if let unwrappedAuthorName = authorName {
+	print("Author is \(unwrappedAuthorName)")
+}
+else {
+	print("No author.")
+}
+
+//Because naming things is so hard, it’s common practice to give the unwrapped
+//constant the same name as the optional (thereby shadowing that optional):
+if let authorName = authorName {
+	print("Author is \(authorName)")
+}
+else {
+	print("No author.")
+}
+
+//guard:
+// -> Sometimes you want to check a condition and only continue executing a function if
+//		the condition is true, such as when you use optionals.
+//	The usual way to encapsulate this behavior is using an optional, which has a value if
+//	the fetch succeeds, and nil otherwise.
+func getMeaningOfLife() -> Int? {
+	return nil
+}
+func printMeaningOfLife() {
+	guard let name = getMeaningOfLife() else {
+		print("The number is nil")
+		return
+	}
+
+	print(name)
+}
+printMeaningOfLife()
+
+//Guard Example2
+func calculateNumberOfSides(shape: String) -> Int? {
+	switch shape {
+		case "Triangle":
+			return 3
+		case "Square":
+			return 4
+		case "Rectangle":
+			return 4
+		case "Pentagon":
+			return 5
+		case "Hexagon":
+			return 6
+		default:
+			return nil
+	}
+}
+/*
+Bottom functions returns same output with different ways. Check guard and w/o guard types
+*/
+func maybePrintSides(shape: String) {
+	let sides = calculateNumberOfSides(shape: shape)
+	if let sides = sides {
+		print("A \(shape) has \(sides) sides.")
+	}
+	else {
+		print("I don’t know the number of sides for \(shape).")
+	}
+}
+func maybePrintSidesGuarded(shape: String) {
+	guard let sides = calculateNumberOfSides(shape: shape) else {
+		print("I don’t know the number of sides for \(shape).")
+		return
+	}
+	print("A \(shape) has \(sides) sides.")
+}
+maybePrintSides(shape: "Triangle")
+maybePrintSidesGuarded(shape: "Quadriangle")
+
+//Nil coalescing
+// The nil coalescing happens on the second line, with the double question mark (??),
+// known as the nil coalescing operator. This line means mustHaveResult will equal
+// either the value inside optionalInt, or 0 if optionalInt contains nil
+var optionalInt: Int? = 10
+var mustHaveResult = optionalInt ?? 0
+print(mustHaveResult)
+
+//the previous code is equvalent to following
+var optionalInt2: Int? = 10
+var mustHaveResult2: Int
+if let unwrapped = optionalInt2 {
+	mustHaveResult2 = unwrapped
+} else {
+	mustHaveResult2 = 0
+}
+print(mustHaveResult2)
+
+*/
+/* ////////// DAY 2 - Collection Types //////////
+
+*/
