@@ -996,3 +996,86 @@ func printOut() {
 	print("Swift Apprentice is a great book!")
 }
 repeatTask(times: 10, task: printOut)
+
+
+//Strings as a collections
+
+let stringSample = "Matt Patt"
+for char in stringSample {
+	print(char)
+}
+let stringLenght = stringSample.count
+print("Length: \(stringLenght)")
+
+
+//grapheme cluster: https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html
+let cafeNormal = "café"
+let cafeCombining = "cafe\u{0301}"
+//Both counts equals 4. Because Swift considers a string as a collection of grapheme clusters
+print (cafeNormal.count)
+print (cafeCombining.count)
+
+//Also we can access Unicode codepoints with unicodeScalars:
+print (cafeNormal.unicodeScalars.count) //4
+print (cafeCombining.unicodeScalars.count)	//5
+
+//iterate through this Unicode scalars:
+for codePoint in cafeCombining.unicodeScalars {
+	print ("\(codePoint) - \(codePoint.value)")
+}
+
+//Strings as bi-directional collections:
+var userName = "Matt"
+var backwardsName = userName.reversed()
+print(backwardsName) //Output: ReversedCollection<String>(_base: "Matt")
+let backwardsString = String(backwardsName)
+print(backwardsString) //Outpu: ttaM
+
+userName = "Murat"
+backwardsName = userName.reversed()
+let secondCharIndex = backwardsName.index(backwardsName.startIndex, offsetBy: 1)
+let secondChar = backwardsName[secondCharIndex]
+print (secondChar) //a (second char of reversed: taruM)
+
+
+//Raw Strings
+//raw string is useful when you want to avoid special characters or string interpolation.
+
+let raw1 = #"Raw "No Escaping" \(no interpolation!). Use all the \you want!"#
+print (raw1)
+
+let raw2 = ##"Aren't we "# clever"##
+print (raw2)
+
+let can = "can do that too"
+let raw3 = #"Yes we \#(can)!"#
+print(raw3)
+
+
+//Substrings
+let fullName = "Matt Galloway"
+let spaceIndex = fullName.firstIndex(of: " ")!
+let firstName = fullName[fullName.startIndex..<spaceIndex]
+let lastName = fullName[fullName.index(after: spaceIndex)...]
+print (firstName) //Matt
+print (lastName)
+
+//Character properties
+//The first is simply finding out if the character belongs to the ASCII character set. To do:
+let singleCharacter: Character = "x"
+let singleEmoji: Character = "😎"
+print(singleCharacter.isASCII) //true
+print(singleEmoji.isASCII) //false
+//When you write variableName.isBlahBlah you can see whats spesific properties.
+
+func characterCount(input: String, count: Character) -> Int {
+	return input.reduce(0) {
+		$1 == count ? $0 + 1 : $0
+	}
+}
+let keys = "YusufTuran"
+for c in keys {
+	var count = 0
+	count = characterCount(input: keys, count: c)
+	print("\(c) : \(count)")
+}
