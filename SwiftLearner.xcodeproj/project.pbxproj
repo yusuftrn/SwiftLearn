@@ -6,11 +6,6 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		882D065E25CA152400441F34 /* input.md in Sources */ = {isa = PBXBuildFile; fileRef = 882D065D25CA152400441F34 /* input.md */; };
-		88315F2E25CF347D0056E216 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88315F2D25CF347D0056E216 /* main.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		882D065825CA152400441F34 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -25,8 +20,10 @@
 
 /* Begin PBXFileReference section */
 		882D065A25CA152400441F34 /* SwiftLearner */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftLearner; sourceTree = BUILT_PRODUCTS_DIR; };
-		882D065D25CA152400441F34 /* input.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = input.md; sourceTree = "<group>"; };
-		88315F2D25CF347D0056E216 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		88DB772625D4B2D80077144A /* two_phase_init.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = two_phase_init.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88DB772925D4B6390077144A /* initial.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = initial.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88DB772C25D4B66B0077144A /* objects2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects2.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88DB772F25D4B6880077144A /* objects1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects1.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +65,9 @@
 		88315F2C25CF343A0056E216 /* objects */ = {
 			isa = PBXGroup;
 			children = (
-				88315F2D25CF347D0056E216 /* main.swift */,
+				88DB772625D4B2D80077144A /* two_phase_init.playground */,
+				88DB772C25D4B66B0077144A /* objects2.playground */,
+				88DB772F25D4B6880077144A /* objects1.playground */,
 			);
 			path = objects;
 			sourceTree = "<group>";
@@ -76,7 +75,7 @@
 		88B2A54525CA1CDB00BAE5CF /* initial */ = {
 			isa = PBXGroup;
 			children = (
-				882D065D25CA152400441F34 /* input.md */,
+				88DB772925D4B6390077144A /* initial.playground */,
 			);
 			path = initial;
 			sourceTree = "<group>";
@@ -138,8 +137,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88315F2E25CF347D0056E216 /* main.swift in Sources */,
-				882D065E25CA152400441F34 /* input.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -186,10 +186,10 @@ class FinalStudentAthlete: FinalStudent {} //Build error. You cant inherit final
 Additionally, you can mark individual methods as final, if you want to allow a class
 to have subclasses, but protect individual methods from being overridden:
 class AnotherStudent: PersonInherit {
-	final func recordGrade(_ grade: Grade) {} //It's final method
+final func recordGrade(_ grade: Grade) {} //It's final method
 }
 class AnotherStudentAthlete: AnotherStudent {
-	override func recordGrade(_ grade: Grade) {} //BUILD ERROR!
+override func recordGrade(_ grade: Grade) {} //BUILD ERROR!
 }
 
 */

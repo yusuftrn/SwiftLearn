@@ -251,7 +251,7 @@ while Int.random(in: 1...6) != 6 {
 //For loops
 /*
 for <CONSTANT> in <COUNTABLE RANGE> {
-	<LOOP CODE>
+<LOOP CODE>
 }
 */
 let countToTen = 10
@@ -264,42 +264,42 @@ print(sumToTen)
 let hourOfDay = 12
 var timeOfDay = ""
 switch hourOfDay {
-	case 0...5:
-		timeOfDay = "Early morning"
-	case 6...11:
-		timeOfDay = "Morning"
-	case 12...16:
-		timeOfDay = "Afternoon"
-	case 17...19:
-		timeOfDay = "Evening"
-	case 20..<24:
-		timeOfDay = "Late evening"
-	default:
-		timeOfDay = "INVALID HOUR!"
+case 0...5:
+	timeOfDay = "Early morning"
+case 6...11:
+	timeOfDay = "Morning"
+case 12...16:
+	timeOfDay = "Afternoon"
+case 17...19:
+	timeOfDay = "Evening"
+case 20..<24:
+	timeOfDay = "Late evening"
+default:
+	timeOfDay = "INVALID HOUR!"
 }
 print(timeOfDay)
 
 var evenOrOdd: Int  = 50
 switch (evenOrOdd) {
-	case let x where x % 2 == 0:
-		print("Even")
-	default:
-		print("Odd")
+case let x where x % 2 == 0:
+	print("Even")
+default:
+	print("Odd")
 }
 
 //switch partial matching
 let coordinatesOfObject = (x: 3, y: 2, z: 5)
 switch coordinatesOfObject {
-	case (0, 0, 0): // 1
-		print("Origin")
-	case (_, 0, 0): // 2
-		print("On the x-axis.")
-	case (0, _, 0): // 3
-		print("On the y-axis.")
-	case (0, 0, _): // 4
-		print("On the z-axis.")
-	default: // 5
-		print("Somewhere in space")
+case (0, 0, 0): // 1
+	print("Origin")
+case (_, 0, 0): // 2
+	print("On the x-axis.")
+case (0, _, 0): // 3
+	print("On the y-axis.")
+case (0, 0, _): // 4
+	print("On the z-axis.")
+default: // 5
+	print("Somewhere in space")
 }
 //////// */
 
@@ -357,8 +357,8 @@ print("Tuple(4,2) product is: \(product) and quotient is: \(quotient)")
 //Function parameters are constants by default, which means they can’t be modified
 /*ERROR:
 func incrementAndPrint(_ value: Int) {
-	value += 1
-	print(value)
+value += 1
+print(value)
 }
 The top function return ERROR: Left side of mutating operator isn't mutable: 'value' is a 'let' constant
 */
@@ -553,7 +553,7 @@ func printMeaningOfLife() {
 		print("The number is nil")
 		return
 	}
-
+	
 	print(name)
 }
 printMeaningOfLife()
@@ -561,18 +561,18 @@ printMeaningOfLife()
 //Guard Example2
 func calculateNumberOfSides(shape: String) -> Int? {
 	switch shape {
-		case "Triangle":
-			return 3
-		case "Square":
-			return 4
-		case "Rectangle":
-			return 4
-		case "Pentagon":
-			return 5
-		case "Hexagon":
-			return 6
-		default:
-			return nil
+	case "Triangle":
+		return 3
+	case "Square":
+		return 4
+	case "Rectangle":
+		return 4
+	case "Pentagon":
+		return 5
+	case "Hexagon":
+		return 6
+	default:
+		return nil
 	}
 }
 /*
@@ -850,7 +850,7 @@ print(res2)
 //Closures with no return values
 let voidClosure: () -> Void = {
 	print("Swift has shitty syntax. Sorry, but Java is clean.")
-
+	
 }
 voidClosure()
 
