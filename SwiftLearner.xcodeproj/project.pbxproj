@@ -6,6 +6,10 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		88265E4125D56AA20014BF2D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88265E4025D56AA20014BF2D /* main.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		882D065825CA152400441F34 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -19,11 +23,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		88265E4025D56AA20014BF2D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		882D065A25CA152400441F34 /* SwiftLearner */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftLearner; sourceTree = BUILT_PRODUCTS_DIR; };
-		88DB772625D4B2D80077144A /* two_phase_init.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = two_phase_init.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		884F474025D555F600DC2396 /* objects5.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects5.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		8895B7E125D54DF00052D18A /* objects4.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects4.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88DB772625D4B2D80077144A /* objects3.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects3.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		88DB772925D4B6390077144A /* initial.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = initial.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		88DB772C25D4B66B0077144A /* objects2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects2.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		88DB772F25D4B6880077144A /* objects1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects1.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88DEB09C25D5BCAD00945F96 /* objects6.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects6.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88DEB09E25D5C10A00945F96 /* objects7.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects7.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,7 @@
 			children = (
 				88315F2C25CF343A0056E216 /* objects */,
 				88B2A54525CA1CDB00BAE5CF /* initial */,
+				88265E4025D56AA20014BF2D /* main.swift */,
 			);
 			path = SwiftLearner;
 			sourceTree = "<group>";
@@ -65,9 +75,13 @@
 		88315F2C25CF343A0056E216 /* objects */ = {
 			isa = PBXGroup;
 			children = (
-				88DB772625D4B2D80077144A /* two_phase_init.playground */,
+				88DB772625D4B2D80077144A /* objects3.playground */,
 				88DB772C25D4B66B0077144A /* objects2.playground */,
 				88DB772F25D4B6880077144A /* objects1.playground */,
+				8895B7E125D54DF00052D18A /* objects4.playground */,
+				884F474025D555F600DC2396 /* objects5.playground */,
+				88DEB09C25D5BCAD00945F96 /* objects6.playground */,
+				88DEB09E25D5C10A00945F96 /* objects7.playground */,
 			);
 			path = objects;
 			sourceTree = "<group>";
@@ -111,6 +125,7 @@
 				TargetAttributes = {
 					882D065925CA152400441F34 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -137,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88265E4125D56AA20014BF2D /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +277,17 @@
 		882D066225CA152400441F34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7772ZUX4ZL;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -272,9 +295,15 @@
 		882D066325CA152400441F34 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7772ZUX4ZL;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

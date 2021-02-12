@@ -17,7 +17,6 @@ stored properties in the base class of a class hierarchy.
 In the scope of a subclass initializer, you can think of this as coming after the call to
 super.init.
 */
-
 class Person{
 	let firstName: String
 	let lastName: String
@@ -57,6 +56,7 @@ class Student: Person {
 
 class StudentAthlete: Student {
 	var sports: [String]
+	var failedClasses: [Grade] = Array<Grade>()
 	
 	init(firstName: String, lastName: String, sports: [String]) {
 		//1
@@ -68,12 +68,23 @@ class StudentAthlete: Student {
 		//4
 		recordGrade(passGrade)
 	}
+	
+	override func recordGrade(_ grade: Grade) {
+		super.recordGrade(grade)
+		
+		if (grade.letter == "F"){
+			failedClasses.append(grade)
+		}
+	}
+	
+	var isEligible: Bool{
+		failedClasses.count < 3
+	}
 }
 
 let mySports = ["Basketball", "Cycling", "Swimming"]
 let yusuf = StudentAthlete(firstName: "Yusuf", lastName: "Turan", sports: mySports)
 print(yusuf.fullName)
-print(yusuf.grades)
 print(yusuf.sports)
 
 /*
@@ -88,3 +99,105 @@ class in the hierarchy, because the same rules are applied at every level.
 4. After super.init returns, the initializer is in phase 2, so you call
 recordGrade(_:).
 */
+
+//Required and convenience initializers
+
+class StudentTransfer{
+	let firstName: String
+	let lastName: String
+	var grades: [Grade] = []
+	
+	init(firstName: String, lastName: String){
+		self.firstName = firstName
+		self.lastName = lastName
+	}
+	
+	init(transfer: StudentTransfer){
+		self.firstName = transfer.firstName
+		self.lastName = transfer.lastName
+	}
+	
+	func recordGrade(_ grade: Grade){
+		grades.append(grade)
+	}
+}
+/*
+In this example, the StudentTransfer class can be built with another Student object. Perhaps
+the student switched majors? Both initializers fully set the first and last names
+*/
+ 
+//You might decide the first and last name-based initializer is important enough that
+//you want it to be available to all subclasses => use: required init()
+class StudentRequiredInit{
+	let firstName: String
+	let lastName: String
+	var grades: [Grade] = []
+	
+	required init(firstName: String, lastName: String){
+		self.firstName = firstName
+		self.lastName = lastName
+	}
+	
+}
+
+class StudentNerdsTeam: StudentRequiredInit{
+	var hobbys: [String]
+	//now required by the compiler:
+	required init(firstName: String, lastName: String) {
+		self.hobbys = []
+		super.init(firstName: firstName, lastName: lastName)
+	}
+	
+	func printMyData(){
+		print("\(self.firstName) \(self.lastName)")
+		print("\(self.hobbys)")
+	}
+}
+let nerdStudent = StudentNerdsTeam(firstName: "Yusuf", lastName: "Turan")
+nerdStudent.hobbys.append("Coding")
+nerdStudent.hobbys.append("More Coding")
+nerdStudent.printMyData()
+
+
+class Team {
+	var players: [StudentAthlete] = Array<StudentAthlete>()
+	
+	var isEligible: Bool {
+		for player in players {
+			if (!player.isEligible) {
+				return false
+			}
+		}
+		return true
+	}
+}
+
+//Shared Base Classes:
+// a button that can be pressed:
+class Button {
+	func press() {}
+}
+
+class Image {}
+
+class ImageButton: Button {
+	var image: Image
+	
+	init(image: Image) {
+		self.image = image
+	}
+}
+
+class TextButton: Button {
+	var text: String
+	
+	init(text: String) {
+		self.text = text
+	}
+}
+///////
+
+//Retain cylces and weak references:
+
+
+
