@@ -23,7 +23,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6E009AA188211F5E9C190A3D /* accessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = accessControl.playground; sourceTree = "<group>"; };
 		8811321525D9510E0068BBDF /* objects8.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects8.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8811321725D954370068BBDF /* objects9.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects9.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		88265E4025D56AA20014BF2D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -37,6 +36,16 @@
 		88DB772F25D4B6880077144A /* objects1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects1.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		88DEB09C25D5BCAD00945F96 /* objects6.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects6.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		88DEB09E25D5C10A00945F96 /* objects7.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects7.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88F4AD2925DA8B0F00F0DB84 /* advanced1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = advanced1.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88F4AD2B25DA8DD200F0DB84 /* advanced2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = advanced2.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88F4AD2E25DA986000F0DB84 /* advanced3.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = advanced3.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88F4AD3025DA9BE200F0DB84 /* advanced4.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = advanced4.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88F4AD3225DAA8C300F0DB84 /* advanced5.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = advanced5.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88F4AD3425DAF40B00F0DB84 /* advanced6.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = advanced6.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88F4AD3625DB006A00F0DB84 /* advanced7.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = advanced7.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88F4AD3925DB089500F0DB84 /* advanced8.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = advanced8.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88F4AD3B25DB136800F0DB84 /* advanced9.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = advanced9.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		88F4AD3E25DB186A00F0DB84 /* objects10.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objects10.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +62,16 @@
 		6E0093CF1F7E711D06981F9C /* advanced */ = {
 			isa = PBXGroup;
 			children = (
-				6E009AA188211F5E9C190A3D /* accessControl.playground */,
+				88F4AD2925DA8B0F00F0DB84 /* advanced1.playground */,
+				88F4AD2B25DA8DD200F0DB84 /* advanced2.playground */,
+				88F4AD2E25DA986000F0DB84 /* advanced3.playground */,
+				88F4AD3025DA9BE200F0DB84 /* advanced4.playground */,
+				88F4AD3225DAA8C300F0DB84 /* advanced5.playground */,
+				88F4AD3425DAF40B00F0DB84 /* advanced6.playground */,
+				88F4AD3625DB006A00F0DB84 /* advanced7.playground */,
+				88F4AD3925DB089500F0DB84 /* advanced8.playground */,
+				88F4AD3B25DB136800F0DB84 /* advanced9.playground */,
+				88F4AD3E25DB186A00F0DB84 /* objects10.playground */,
 			);
 			path = advanced;
 			sourceTree = "<group>";
